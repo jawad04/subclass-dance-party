@@ -25,6 +25,7 @@ makePopDancer.prototype.step = function() {
     duration:'slow'
   },'linear');
   this.$node.animate({top: "+=300"}, 2000);
+  this.$node.animate({top: "-=300"}, 1000);
   this.$node.animate({borderSpacing: 360}, {
     step: function(now, fx) {
       $(this).css('-webkit-transform','rotate('+now+'deg)'); 
@@ -33,5 +34,10 @@ makePopDancer.prototype.step = function() {
     },
     duration:'slow'
   },'linear');
-  this.$node.animate({top: "-=300"}, 1000)
+  this.$node.mouseenter(function() {
+    $(this).attr("src", "https://upload.wikimedia.org/wikipedia/it/6/6d/Luigi.png");
+  });
+  this.$node.mouseleave(function() {
+    $(this).attr("src", "http://purepng.com/public/uploads/large/purepng.com-super-mario-luigimariofictional-charactervideo-gamefranchisenintendodesigner-1701528624279pdkrj.png");
+  });
 };
