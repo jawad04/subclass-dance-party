@@ -17,10 +17,8 @@ $(document).ready(function() {
      * to the stage.
      */
     var dancerMakerFunctionName = $(this).data('dancer-maker-function-name');
-
     // get the maker function for the kind of dancer we're supposed to make
     var dancerMakerFunction = window[dancerMakerFunctionName];
-
     // make a dancer with a random position
     var dancer = new dancerMakerFunction(
       $("body").height() * Math.random() - 20,
@@ -34,7 +32,9 @@ $(document).ready(function() {
   $('.lineupButton').on('click', function(event) {
     var y = 20;
     window.dancers.forEach(dancer => {
-      dancer.setPosition($("body").height() * 0.75, y);
+      dancer.top = $("body").height() * 0.75;
+      dancer.left = y;
+      dancer.setPosition();
       y += 80;
     });
   });
