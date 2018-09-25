@@ -9,12 +9,12 @@ makeGhostDancer.prototype.constructor = makeGhostDancer;
 makeGhostDancer.prototype.step = function() {
   makeDancer.prototype.step.call(this, this.timeBetweenSteps);
   // this.setPosition($("body").height() * Math.random(), $("body").width() * Math.random());
-    this.$node.animate({borderSpacing: 90}, {
-    step: function(now, fx) {
-      $(this).css('-webkit-transform','rotate('+now+'deg)'); 
-      $(this).css('-moz-transform','rotate('+now+'deg)');
-      $(this).css('transform','rotate('+now+'deg)');
-    },
-    duration:'slow'
-  },'linear');
+  doBounce(this.$node, 3, '10px', 30);  
 };
+
+function doBounce(element, times, distance, speed) {
+  for(i = 0; i < times; i++) {
+      element.animate({marginTop: '-='+distance},speed)
+          .animate({marginTop: '+='+distance},speed);
+  }        
+}
