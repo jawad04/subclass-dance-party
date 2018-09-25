@@ -25,17 +25,17 @@ $(document).ready(function() {
     var dancer = new dancerMakerFunction(
       $("body").height() * Math.random(),
       $("body").width() * Math.random(),
-      Math.random() * 1000
+      Math.random() * 2000
     );
     $('body').append(dancer.$node);
     window.dancers.push(dancer);
   });
 
   $('.lineupButton').on('click', function(event) {
-    var y = 10;
+    var y = 20;
     window.dancers.forEach(dancer => {
-      dancer.setPosition($("body").height() / 2, y);
-      y += 20;
+      dancer.setPosition($("body").height() * 0.75, y);
+      y += 80;
     });
   });
 });
