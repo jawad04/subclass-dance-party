@@ -24,15 +24,10 @@ body, a:link, a:visited, a:active{
   background-color: #777;
 }
 .dancer{
-  /*border:10px solid red;*/
-  /*background-image: url("https://unrealitymag.com/wp-content/uploads/2011/03/groovy_cartoon_characters_640_46.jpg");*/
-  /*border-radius:10px;*/
   height: 20%;
   position:absolute;
 }
 .ghostDancer{
-  width: 20%;
 }
 .popDancer{
-
 }

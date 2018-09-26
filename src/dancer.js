@@ -28,6 +28,7 @@ class Dancer {
     this.$node = $('<img src="http://www.stickpng.com/assets/images/584df3886a5ae41a83ddee06.png" class="dancer">');
     this.step();
     this.setPosition();
+    this.checkNeighbor();
   }
   step() {
     setTimeout(this.step.bind(this), this.timeBetweenSteps);
@@ -38,6 +39,23 @@ class Dancer {
       left: this.left
     }
     this.$node.css(styleSettings);
+  }
+  checkNeighbor() {
+    // var distance;
+    var left = this.left;
+    var top = this.top;
+    var self = this;
+    // var currentWidth = $(this.$node).width();
+    // var currentHeight = this.$node.offsetHeight;
+    // console.log(this.$node, currentHeight, currentWidth);
+    this.$node.on('load', function() {
+        window.dancers.forEach(dancer => {
+          var distance = Math.pow((left - dancer.left), 2) + Math.pow((top - dancer.top), 2);
+          if (distance < 300000 && distance !== 0) {
+            $(self.$node).animate({height: "300px"});
+          }
+        })
+    });
   }
 }
 
